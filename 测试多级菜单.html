@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>案例1.3-多级导航菜单</title>
+    <style>
+
+        /*样式重置*/
+        * {
+
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+
+            list-style: none;
+        }
+
+        a {
+
+            text-decoration: none;
+        }
+
+        #menu {
+
+            /*overflow: hidden; */
+            /*这时就不能用这个方式解决塌陷问题了，
+           因为溢出隐藏后，二级菜单就显示不出来了*/
+            height: 30px; /*设置固定高度，直接解决塌陷问题*/
+        }
+
+        /*#menu > li {*/
+        /* > 子代选择器，IE6不支持*/
+        #menu .mainmenu {
+
+            float: left;
+            width: 120px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        #menu .mainmenu a {
+            float: left; /*此处浮动的目的是为了让a可以设置宽和高*/
+            width: 100%;
+            height: 100%;
+
+            line-height: 30px; /*行高等于高，是设置文字垂直居中的技巧*/
+            text-align: center;
+            background: #cccccc;
+        }
+
+        #menu .submenu {
+            display: none;
+        }
+
+        #menu .submenu a {
+            background: #eeeeee;
+            border-bottom: 1px dashed #333;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+
+    <li class="mainmenu"><a href="#">link 1</a>
+        <ul class="submenu">
+
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+
+    </li>
+
+    <li class="mainmenu"><a href="#">link 2</a>
+        <ul class="submenu">
+
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+
+    <li class="mainmenu"><a href="#">link 3</a>
+        <ul class="submenu">
+
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    for (var i = 0; i < aLi.length; i++) {
+        if (aLi[i].className == 'mainmenu') {
+            aLi[i].onmouseover = function () {
+                var oSubMenu = this.getElementsByTagName('ul')[0];
+                oSubMenu.style.display = 'block';
+            };
+            aLi[i].onmouseout = function () {
+
+                var oSubMenu = this.getElementsByTagName('ul')[0];
+                oSubMenu.style.display = 'none';
+            };
+        }
+    }
+</script>
+</body>
+</html>
