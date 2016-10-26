@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>测试2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #menu {
+            height: 30px;
+        }
+
+        #menu .main {
+            float: left;
+            width: 200px;
+            height: 30px;
+            background: #40E0D0;
+            margin-left: 5px;
+        }
+
+        #menu .main a {
+            float: left;
+            height: 100%;
+            width: 100%;
+            line-height: 30px;
+            text-align: center;
+            background: #40E0D0;
+        }
+
+        #menu .submenu {
+            display: none;
+        }
+
+        #menu .submenu a {
+            border-bottom: 1px dashed #333;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main">
+        <a href="#">001</a>
+        <ul class="submenu">
+            <li><a href="#">111</a></li>
+            <li><a href="#">222</a></li>
+            <li><a href="#">333</a></li>
+        </ul>
+    </li>
+    <li class="main">
+        <a href="#">002</a>
+        <ul class="submenu">
+            <li><a href="#">111</a></li>
+            <li><a href="#">222</a></li>
+            <li><a href="#">333</a></li>
+        </ul>
+    </li>
+    <li class="main">
+        <a href="#">003</a>
+        <ul class="submenu">
+            <li><a href="#">111</a></li>
+            <li><a href="#">222</a></li>
+            <li><a href="#">333</a></li>
+        </ul>
+    </li>
+    <li class="main">
+        <a href="#">004</a>
+        <ul class="submenu">
+            <li><a href="#">111</a></li>
+            <li><a href="#">222</a></li>
+            <li><a href="#">333</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    for (var i = 0; i < aLi.length; i++) {
+        console.log(i);
+        if (aLi[i].className == 'main') {
+            console.log(i);
+            aLi[i].bFlag = false;
+            aLi[i].onclick = function () {
+                if (this.bFlag) {
+                    this.getElementsByTagName('ul')[0].style.display = 'block';
+                } else {
+                    this.getElementsByTagName('ul')[0].style.display = 'none';
+                }
+                this.bFlag = !this.bFlag;
+            };
+        }
+
+//        if(aLi[i].className=='main'){
+//            console.log(i);
+//            aLi[i].onmouseover=function(){
+//                this.getElementsByTagName('ul')[0].style.display='block';
+//            };
+//            aLi[i].onmouseout=function(){
+//                this.getElementsByTagName('ul')[0].style.display='none';
+//            };
+//        }
+
+    }
+</script>
+</body>
+</html>

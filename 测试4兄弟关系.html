@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>案例1.3-多级导航菜单</title>
+    <style>
+        /*样式重置*/
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #menu li {
+            float: left;
+            margin-right: 5px;
+        }
+
+        #menu .main-menu {
+            background: #cccccc;
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            display: block;
+
+        }
+
+        #menu .sub-menu {
+            background: #eee;
+            display: none;
+            width: 120px;
+        }
+
+        #menu .sub-menu li {
+            float: none;
+            border-bottom: 1px dotted #000;
+            height: 25px;
+            line-height: 25px;
+        }
+
+        /*#menu > li:hover .sub-menu{*/
+        /*display: block;*/
+        /*/!*}利用html和css实现多级菜单功能！*!/!*/
+        *
+
+        /
+
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li>
+        <a onselectstart="return false" href="#" class="main-menu">link 1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a onselectstart="return false" href="#" class="main-menu">link 2</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+    <li>
+        <a onselectstart="return false" href="#" class="main-menu">link 3</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink 1</a></li>
+            <li><a href="#">sublink 2</a></li>
+            <li><a href="#">sublink 3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    //         兄弟关系必须设置index来使兄弟间的数字相同，
+    // 下列中main-menu寻找出来的序号是0 4 8 12但是aSubmenu的序号是0 1 2 3
+    // 都不是一一对应的，所以要用index来记录main-menu的个数，自然main-menu的
+    // 序号就变成了0 1 2 3！
+    var oMenu = document.getElementById('menu');
+    var aMainMenu = oMenu.getElementsByTagName('a');//oMenu.getElementsByClassName('main-menu');
+    var aSubMenu = oMenu.getElementsByTagName('ul');
+    var count = 0;
+    for (var i = 0; i < aMainMenu.length; i++) {
+//        console.log(i);
+        if (aMainMenu[i].className == 'main-menu') {
+            console.log(i);
+            aMainMenu[i].index = count++;
+            aMainMenu[i].bFlag = true;
+            aMainMenu[i].onclick = function () {
+                if (this.bFlag) {
+                    aSubMenu[this.index].style.display = 'none';
+                } else {
+                    aSubMenu[this.index].style.display = 'block';
+                }
+                this.bFlag = !this.bFlag;
+//                aMainMenu[i].onmouseover = function(){
+//                    aSubMenu[  this.index  ].style.display = 'block';
+//                };
+//
+////                aMainMenu[i].onmouseout = function(){
+////                    aSubMenu[  this.index  ].style.display = 'none';
+            }
+        }
+        ;
+
+    }
+
+</script>
+</body>
+</html>
