@@ -83,7 +83,7 @@
 </ul>
 <script>
     //       兄弟关系必须设置index来使兄弟间的数字相同，
-    // 下列中main-menu寻找出来的序号是0 4 8 12但是aSubmenu的序号是0 1 2 3
+    // 下列中main-menu寻找出来的序号是0 4 8但是aSubmenu的序号是0 1 2
     // 都不是一一对应的，所以要用index来记录main-menu的个数，自然main-menu的
     // 序号就变成了0 1 2 3！
     var oMenu = document.getElementById('menu');
@@ -95,21 +95,21 @@
         if (aMainMenu[i].className == 'main-menu') {
             console.log(i);
             aMainMenu[i].index = count++;
-            aMainMenu[i].bFlag = true;
+            aMainMenu[i].bFlag = false;
             aMainMenu[i].onclick = function () {
                 if (this.bFlag) {
                     aSubMenu[this.index].style.display = 'none';
                 } else {
                     aSubMenu[this.index].style.display = 'block';
                 }
-                this.bFlag = !this.bFlag;
+        this.bFlag = !this.bFlag;
 //                aMainMenu[i].onmouseover = function(){
 //                    aSubMenu[  this.index  ].style.display = 'block';
 //                };
 //
 ////                aMainMenu[i].onmouseout = function(){
 ////                    aSubMenu[  this.index  ].style.display = 'none';
-            }
+    }
         }
         ;
 

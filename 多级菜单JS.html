@@ -91,6 +91,7 @@
 </ul>
 <script>
     var oMenu = document.getElementById('menu');
+//    var aLi=oMenu.children;//直接寻找后代，不用查找。兼容所有浏览器！
     var aLi = document.getElementsByTagName('li');
     for (var i = 0; i < aLi.length; i++) {
         if (aLi[i].className == 'mainmenu') {

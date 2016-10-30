@@ -69,9 +69,11 @@
             aLi[i].bFlag = false;
             aLi[i].onclick = function () {
                 if (this.bFlag) {
-                    this.getElementsByTagName('ul')[0].style.display = 'none';
+                    var aUl=this.getElementsByTagName('ul');
+                    aUl[0].style.display = 'none';
                 } else {
-                    this.getElementsByTagName('ul')[0].style.display = 'block';
+                    var aUl=this.getElementsByTagName('ul');
+                    aUl[0].style.display = 'block';
                 }
                 this.bFlag = !this.bFlag;
             }
@@ -79,8 +81,6 @@
         }
 
     }
-
-
     //    var oMenu=document.getElementById('menu');
     //    var aH3=oMenu.getElementsByTagName('h3');
     //    var aSubmenu=oMenu.getElementsByTagName('ul');
@@ -115,4 +115,5 @@
     //        };
     //    }
 </script>
+</body>
 </html>
