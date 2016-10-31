@@ -32,7 +32,7 @@
             line-height: 20px;
             text-align: center;
             float: left;
-            margin: 1px;
+            margin-right: 5px;
             cursor: pointer;
         / /鼠标经过变成小手！/ /
         }
@@ -54,7 +54,7 @@
             position: absolute;
             left: 20px;
             bottom: 10px;
-            float:left;
+            float: left;
         }
 
         #nav {
@@ -72,20 +72,20 @@
 <body>
 <div id="container">
     <ul id="nav">
-        <li class="selected" onselectstart="return false">1</li>
-        <li onselectstart="return false">2</li>
-        <li onselectstart="return false">3</li>
-        <li onselectstart="return false">4</li>
+        <li class="selected"  >1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
     </ul>
     <div id="content">
-        <a class="selected" href="#"><img id="obj" src="img/1.jpg" alt="#"/></a>
+        <a class="selected" href="#"><img src="img/1.jpg" alt="#"/></a>
         <a href="#"><img src="img/2.jpg" alt=""/></a>
         <a href="#"><img src="img/3.jpg" alt=""/></a>
         <a href="#"><img src="img/4.jpg" alt=""/></a>
     </div>
     <div id="arrows">
-        <span>&lt;</span>
-        <span>&gt;</span>
+        <span id="prev" onselectstart="return false" >&lt;</span>
+        <span id="next" onselectstart="return false" >&gt;</span>
     </div>
 </div>
 <script>
@@ -93,47 +93,47 @@
     var aLi = oContent.getElementsByTagName('li');
     var oContent = document.getElementById('content');
     var aA = oContent.getElementsByTagName('a');
-    var last = 0;
-    //                方法1
+    var oPrev=document.getElementById('prev');
+    var oNext=document.getElementById('next');
+    var aSpan=document.getElementsByTagName('span');
+    var iNow=0;
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].index = i;
-        aLi[i].onmousemove = function () {
-            aLi[last].className = '';
-            this.className = 'selected';
-            aA[last].className = '';
-            aA[this.index].className = 'selected';
-            last = this.index;
+        aLi[i].onmouseover = function () {
+            changeImg(this.index);
+        };
+        aLi[i].onselectstart = function(){
+            return false;
+        };
+    }
+    oPrev.onclick=function(){
+        iNow--;
+        if(iNow==-1){
+            iNow=aLi.length-1;
         }
+        changeImg(iNow);
+    };
+    oNext.onclick=function(){
+        iNow++;
+        if(iNow==aLi.length){
+            iNow=0;
+        }
+        changeImg(iNow);
+    };
+    aSpan.onselectstart = function(){
+        return false;
+    };
+
+    function changeImg(emel) {
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            aA[i].className = '';
+        }
+        aA[emel].className = 'selected';
+        aLi[emel].className = 'selected';
     }
 
-    //               方法2
-    //    for (var i = 0; i < aLi.length; i++) {
-    //        aLi[i].index = i;
-    //        aLi[i].onclick = function () {
-    //            for (var i = 0; i < aLi.length; i++) {
-    //                aLi[i].className = '';
-    //                aA[i].className = '';
-    //            }
-    //            this.className = 'selected';
-    //            aA[this.index].className = 'selected';
-    //        }
-    //    }
-//    var arr = new Array();
-//    arr[0] = "img/1.jpg";//存放图片地址
-//    arr[1] = "img/2.jpg";
-//    arr[2] = "img/3.jpg";
-//    arr[3] = "img/4.jpg";
-//    var num = 0;
-//    setInterval(turnpic, 1500); //每隔1.5秒转换图片
-//    function turnpic() {
-//        var idsrc = document.getElementById("obj");
-//        if (num == arr.length - 1) {
-//            num = 0;
-//        }
-//        else {
-//            num += 1;
-//        }
-//        idsrc.src = arr[num];
+
 
 </script>
 </body>
