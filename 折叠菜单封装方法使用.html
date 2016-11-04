@@ -68,14 +68,15 @@
             }
         }
         //封装一个函数来进行调用！
-    function next(elem) {
-        do {
-            elem = elem.nextSibling;
-        } while (elem && elem.nodeType != 1);
-        //elem直接判断elem是否有效,
-        //直接写变量本身的作用是判断它是否有效这是JS特性!!!!
-        return elem;
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType != 1);
+            //elem直接判断elem是否有效,
+            //直接写变量本身的作用是判断它是否有效这是JS特性!!!!
+            return elem;
 
+        }
     }
 </script>
 </body>

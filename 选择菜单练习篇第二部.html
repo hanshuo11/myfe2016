@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择菜单第二部</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 400px;
+            height: 200px;
+            margin: 50px auto;
+        }
+
+        #menu {
+            height: 30px;
+        }
+
+        #menu li {
+            height: 30px;
+            width: 110px;
+            background: #cccccc;
+            float: left;
+            margin-right: 5px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        #content {
+            width: 400px;
+            height: 170px;
+            background: #cccccc;
+            border-top: 1px solid;
+        }
+
+        #menu .seleced {
+            background: #000000;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="menu">
+        <li onselectstart="return false" class="seleced">java</li>
+        <li onselectstart="return false">JS</li>
+        <li onselectstart="return false">html</li>
+    </ul>
+    <div id="content">
+        111111111111
+    </div>
+</div>
+<script>
+    var oMenu = document.getElementById('menu');
+    var aLi = oMenu.getElementsByTagName('li');
+    var oContent = document.getElementById('content');
+    var aArray = [11111111, 2222222, 33333333];
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onclick = function () {
+            for (var i = 0; i < aLi.length; i++) {
+//                if (aLi[i].className == 'seleced') {
+                    aLi[i].className = "";//也可以所有的都变成“”就不用寻找seleced！
+//                }
+            }
+            this.className = 'seleced';
+            oContent.innerHTML = aArray[this.index];
+        }
+    }
+</script>
+</body>
+</html>
