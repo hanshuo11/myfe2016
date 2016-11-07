@@ -16,6 +16,11 @@
         li {
             list-style: none;
         }
+        #cantainer{
+            position: absolute;
+            left: 10px;
+            top: 100px;
+        }
 
         #menu {
             /*overflow: hidden;*/
@@ -43,44 +48,84 @@
     </style>
 </head>
 <body>
-<ul id="menu">
-    <li class="mainmenu">
-        <h3 onselectstart="return false">管理区</h3>
-        <ul class="submenu">
-            <li><a href="#">111</a></li>
-            <li><a href="#">222</a></li>
-            <li><a href="#">333</a></li>
-        </ul>
-    </li>
-    <li class="mainmenu">
-        <h3 onselectstart="return false">交流区</h3>
-        <ul class="submenu">
-            <li><a href="#">1111</a></li>
-            <li><a href="#">2222</a></li>
-            <li><a href="#">3333</a></li>
-        </ul>
-    </li>
-</ul>
-<script>
-    var oMenu = document.getElementById('menu');
-    var aLi = oMenu.getElementsByTagName('li');
-    for (var i = 0; i < aLi.length; i++) {
-        if (aLi[i].className == 'mainmenu') {
-            aLi[i].bFlag = false;
-            aLi[i].onclick = function () {
-                if (this.bFlag) {
-                    var aUl=this.getElementsByTagName('ul');
-                    aUl[0].style.display = 'none';
-                } else {
-                    var aUl=this.getElementsByTagName('ul');
-                    aUl[0].style.display = 'block';
-                }
-                this.bFlag = !this.bFlag;
-            }
-            ;
-        }
+<div id="cantainer">
+    <ul id="menu">
+        <li class="mainmenu">
+            <h3 onselectstart="return false">管理区</h3>
+            <ul class="submenu">
+                <li><a href="#">111</a></li>
+                <li><a href="#">222</a></li>
+                <li><a href="#">333</a></li>
+            </ul>
+        </li>
+        <li class="mainmenu">
+            <h3 onselectstart="return false">交流区</h3>
+            <ul class="submenu">
+                <li><a href="#">1111</a></li>
+                <li><a href="#">2222</a></li>
+                <li><a href="#">3333</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
 
+<script>
+    var oMenu=document.getElementById('menu');
+    var aH3=oMenu.getElementsByTagName('h3');
+    var aSubmenu=oMenu.getElementsByTagName('ul');
+    var index=0;
+    for(var i=0;i<aH3.length;i++){
+        aH3[i].index=i;
+        aH3[i].bFlag=false;
+        aH3[i].onclick=function(){
+            if(this.bFlag){
+                aSubmenu[this.index].style.display='none';
+            }else{
+                aSubmenu[this.index].style.display='block';
+            };
+            this.bFlag=!this.bFlag;
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    var oMenu = document.getElementById('menu');
+//    var aLi = oMenu.getElementsByTagName('li');
+//    for (var i = 0; i < aLi.length; i++) {
+//        if (aLi[i].className == 'mainmenu') {
+//            aLi[i].bFlag = false;
+//            aLi[i].onclick = function () {
+//                if (this.bFlag) {
+//                    var aUl = this.getElementsByTagName('ul');
+//                    aUl[0].style.display = 'none';
+//                } else {
+//                    var aUl = this.getElementsByTagName('ul');
+//                    aUl[0].style.display = 'block';
+//                }
+//                this.bFlag = !this.bFlag;
+//            }
+//            ;
+//        }
+//
+//    }
     //    var oMenu=document.getElementById('menu');
     //    var aH3=oMenu.getElementsByTagName('h3');
     //    var aSubmenu=oMenu.getElementsByTagName('ul');
