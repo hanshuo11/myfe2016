@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片滑动</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 680px;
+            height: 344px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #content {
+            width: 2720px;
+            height: 344px;
+            position: absolute;
+            left: 0;
+        }
+
+        #content img {
+            float: left;
+            width: 680px;
+            height: 344px;
+        }
+
+        #tab {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+
+        }
+
+        #tab li {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 5px;
+            float: left;
+            cursor: pointer;
+        }
+
+        #tab li.selected {
+            background: orange;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #arrows span {
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="container">
+
+    <div id="content">
+        <img src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <img src="img/3.jpg" alt=""/>
+        <img src="img/4.jpg" alt=""/>
+    </div>
+
+    
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+
+    <div id="arrows">
+        <span id="prev" onselectstart="return false">&lt;</span>
+        <span id="next" onselectstart="return false">&gt;</span>
+    </div>
+</div>
+<script src="jslib.js"></script>
+<script>
+    var oCantainer = document.getElementById('container');
+    var oTab = document.getElementById('tab');
+    var aLi = oTab.getElementsByTagName('li');
+    var oContent = document.getElementById("content");
+    var aImg = oContent.getElementsByTagName("img");
+    var oPrev = document.getElementById("prev");
+    var oNext = document.getElementById("next");
+    var iImgWidth = aImg[0].offsetWidth;
+    oContent.appendChild(aImg[0].cloneNode());
+    oContent.style.width = iImgWidth * aImg.length + 'px';
+    var iNow = 0;
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmousemove = function () {
+            changeImg(this.index);
+        }
+    }
+    oNext.onclick = function () {
+        iNow++;
+        if (iNow == aImg.length) {
+            iNow = 1;
+            oContent.style.left = 0;
+        }
+        console.log(iNow);
+        changeImg(iNow);
+    }
+    oPrev.onclick = function () {
+        iNow--;
+        if (iNow == -1) {
+            iNow = aImg.length - 2;
+            oContent.style.left = -(aImg.length - 1) * iImgWidth + "px";
+        }
+        console.log(iNow);
+        changeImg(iNow);
+
+    }
+
+    var timer;
+    function run() {
+        timer=setInterval(function () {oNext.onclick()
+        }, 2000);
+    }
+    run();
+
+    oCantainer.onmouseover=function(){
+        clearInterval(timer);
+    }
+    oCantainer.onmouseout=function(){
+        run();
+    }
+
+
+
+    function changeImg(idex) {
+        iNow = idex;
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            aLi[iNow == aLi.length ? 0 : iNow].className = 'selected';
+            animate(oContent, {left: -iNow * iImgWidth});
+        }
+    }
+
+
+</script>
+</body>
+</html>
