@@ -84,7 +84,6 @@
 </head>
 <body>
 <div id="container">　
-
     <div id="content">
         <img src="img/1.jpg" alt=""/>
         <img src="img/2.jpg" alt=""/>
@@ -92,7 +91,7 @@
         <img src="img/4.jpg" alt=""/>
     </div>
 
-    
+
     <ul id="tab">
         <li class="selected">1</li>
         <li>2</li>
@@ -115,10 +114,12 @@
     var aImg = oContent.getElementsByTagName("img");
     var oPrev = document.getElementById("prev");
     var oNext = document.getElementById("next");
-    var iImgWidth = aImg[0].offsetWidth;
+    var iImgWidth = aImg[0].offsetWidth;//cloneNode()是克隆的意思.
+    //这行的意思是给oContent添加一个子元素，子元素的内容是克隆第一张图片!
     oContent.appendChild(aImg[0].cloneNode());
     oContent.style.width = iImgWidth * aImg.length + 'px';
     var iNow = 0;
+
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].index = i;
         aLi[i].onmousemove = function () {
@@ -126,6 +127,14 @@
         }
     }
 
+    function changeImg(idex) {
+        iNow = idex;
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].className = '';
+            aLi[iNow == aLi.length ? 0 : iNow].className = 'selected';
+            animate(oContent, {left: -iNow * iImgWidth});
+        }
+    }
 
     oNext.onclick = function () {
         iNow++;
@@ -149,31 +158,24 @@
     }
 
 
+
     var timer;
     function run() {
-        timer=setInterval(function () {oNext.onclick()
-        }, 2000);
+        timer = setInterval(function () {
+            oNext.onclick()
+        }, 800);
     }
     run();
 
-    oCantainer.onmouseover=function(){
+    oCantainer.onmouseover = function () {
         clearInterval(timer);
     }
 
-    oCantainer.onmouseout=function(){
+    oCantainer.onmouseout = function () {
         run();
     }
 
 
-
-    function changeImg(idex) {
-        iNow = idex;
-        for (var i = 0; i < aLi.length; i++) {
-            aLi[i].className = '';
-            aLi[iNow == aLi.length ? 0 : iNow].className = 'selected';
-            animate(oContent, {left: -iNow * iImgWidth});
-        }
-    }
 
 
 </script>

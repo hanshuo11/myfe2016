@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>小块拖拽</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+            background: #ff920b;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+            background: #8ed243;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+            background: #3c707b;
+        }
+
+        #div4 {
+            width: 200px;
+            height: 150px;
+            margin: 5px;
+            background: #000000;
+        }
+
+
+    </style>
+</head>
+<body>
+hahahahahahahahahahahha
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+<div id="div4"></div>
+<script>
+    var oDiv = document.getElementsByTagName('div');
+    var zIndex = 4;
+    for (var i = 0; i < oDiv.length; i++) {
+        oDiv[i].style.left = oDiv[i].offsetLeft + 'px';
+        oDiv[i].style.top = oDiv[i].offsetTop + 'px';
+        oDiv[i].pos = oDiv[i].pos = {
+            left: oDiv[i].offsetLeft,
+            top: oDiv[i].offsetTop
+        };
+    }
+    for (var i = 0; i < oDiv.length; i++) {
+        oDiv[i].style.position = 'absolute';
+        turg(oDiv[i]);
+    }
+
+
+    function turg(idem) {
+        var iDisX = iDisY = 0;
+        idem.onmousedown = function (e) {
+            idem.style.zIndex = zIndex++;
+            e = e || window.event;
+            iDisX = e.clientX - idem.offsetLeft;
+            iDisY = e.clientY - idem.offsetTop;
+            document.onmousemove = function (e) {
+                e = e || window.event;
+                var iLeft = e.clientX - iDisX;
+                var iTop = e.clientY - iDisY;
+                if (iLeft <= 0) {
+                    iLeft = 0;
+                }
+                if (iLeft >= document.documentElement.clientWidth - idem.offsetWidth) {
+                    iLeft = document.documentElement.clientWidth - idem.offsetWidth;
+                }
+                idem.style.left = iLeft + 'px';
+                idem.style.top = iTop + 'px';
+                return false;
+            }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        }
+
+    }
+</script>
+</html>
