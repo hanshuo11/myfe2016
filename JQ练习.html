@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img {
+            width: 600px;
+            height: 350px;
+            position: absolute;
+        }
+
+        button {
+            position: absolute;
+            top: 360px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<img src="img/1.jpg" alt=""/>
+<button TYPE="button">点我啊!</button>
+<script src="Tool/jquery-3.1.1.js"></script>
+<script>
+    $(document).ready(function () {
+        $("button").click(function () {
+            $("img").animate({height: '550px', width: '800px'}, function () {
+                $("img").animate({left: '200px'}, function () {
+                    $("img").animate({top: '200px'})
+                })
+            })
+        });
+    });
+</script>
+</body>
+</html>
