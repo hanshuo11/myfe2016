@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #menu {
+            /*overflow: hidden;*/
+        }
+
+        #menu h3 {
+            width: 100px;
+            height: 55px;
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        #menu .submenu {
+            width: 100px;
+            display: none;
+            background: #40E0D0;
+        }
+
+        #menu .submenu li {
+            float: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="mainmenu">
+        <h3>管理区</h3>
+        <ul class="submenu">
+            <li><a href="#">111</a></li>
+            <li><a href="#">222</a></li>
+            <li><a href="#">333</a></li>
+        </ul>
+    </li>
+    <li class="mainmenu">
+        <h3>交流区</h3>
+        <ul class="submenu">
+            <li><a href="#">1111</a></li>
+            <li><a href="#">2222</a></li>
+            <li><a href="#">3333</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var oMenu = document.getElementById('menu');
+    var aH3 = oMenu.getElementsByTagName('h3');
+    for (var i = 0; i < aH3.length; i++) {
+        aH3[i].onclick = function () {
+            if (next(this)) {//提前判断点击的那个h3是否有效！如果有效才会进一步执行。
+                if (next(this).style.display == 'block') {
+                    next(this).style.display = 'none';
+                } else {
+                    next(this).style.display = 'block';
+                }
+            }
+        };
+        aH3[i].onselectstart = function () {
+            return false;
+        }
+    }
+
+
+    function next(elem) {
+        do {
+            elem = elem.nextSibling;//寻找它的下一个节点
+        } while (elem && elem.nodeType != 1);//判断节点是文本节点还是元素节点
+        return elem;
+    }
+</script>
+</body>
+</html>

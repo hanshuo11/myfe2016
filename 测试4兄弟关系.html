@@ -44,14 +44,9 @@
             height: 25px;
             line-height: 25px;
         }
-
         /*#menu > li:hover .sub-menu{*/
         /*display: block;*/
         /*/!*}利用html和css实现多级菜单功能！*!/!*/
-        *
-
-        /
-
     </style>
 </head>
 <body>
@@ -85,16 +80,13 @@
     //       兄弟关系必须设置index来使兄弟间的数字相同，
     // 下列中main-menu寻找出来的序号是0 4 8但是aSubmenu的序号是0 1 2
     // 都不是一一对应的，所以要用index来记录main-menu的个数，自然main-menu的
-    // 序号就变成了0 1 2 3！
+    // 序号就变成了0 1 2 ！
     var oMenu = document.getElementById('menu');
     var aMainMenu = oMenu.getElementsByTagName('a');//oMenu.getElementsByClassName('main-menu');
     var aSubMenu = oMenu.getElementsByTagName('ul');
-    var count = 0;
     for (var i = 0; i < aMainMenu.length; i++) {
-//        console.log(i);
         if (aMainMenu[i].className == 'main-menu') {
-            console.log(i);
-            aMainMenu[i].index = count++;
+            aMainMenu[i].index = i/4;
             aMainMenu[i].bFlag = false;
             aMainMenu[i].onclick = function () {
                 if (this.bFlag) {
@@ -102,17 +94,18 @@
                 } else {
                     aSubMenu[this.index].style.display = 'block';
                 }
-        this.bFlag = !this.bFlag;
-//                aMainMenu[i].onmouseover = function(){
-//                    aSubMenu[  this.index  ].style.display = 'block';
+                this.bFlag = !this.bFlag;
+//                aMainMenu[i].onmouseover = function () {
+//                    aSubMenu[this.index].style.display = 'block';
 //                };
 //
-////                aMainMenu[i].onmouseout = function(){
-////                    aSubMenu[  this.index  ].style.display = 'none';
-    }
-        }
-        ;
+//                aMainMenu[i].onmouseout = function () {
+//                    aSubMenu[this.index].style.display = 'none';
+//                }
+            }
+            ;
 
+        }
     }
 
 </script>
