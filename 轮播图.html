@@ -63,8 +63,8 @@
             bottom: 10px;
         }
 
-        #nav .selected {
-            background: orange;
+        #nav .selected{
+            background:orange;
         }
 
     </style>
@@ -72,11 +72,12 @@
 <body>
 <div id="container">
     <ul id="nav">
-        <li class="selected"  >1</li>
+        <li class="selected">1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
     </ul>
+
     <div id="content">
         <a class="selected" href="#"><img src="img/1.jpg" alt="#"/></a>
         <a href="#"><img src="img/2.jpg" alt=""/></a>
@@ -84,45 +85,53 @@
         <a href="#"><img src="img/4.jpg" alt=""/></a>
     </div>
     <div id="arrows">
-        <span id="prev" onselectstart="return false" >&lt;</span>
-        <span id="next" onselectstart="return false" >&gt;</span>
+        <span id="prev" onselectstart="return false">&lt;</span>
+        <span id="next" onselectstart="return false">&gt;</span>
     </div>
 </div>
 <script>
-    var oContent = document.getElementById('nav');
-    var aLi = oContent.getElementsByTagName('li');
+
+    var oContainer = document.getElementById('container');
+    var oNav = document.getElementById('nav');
+    var aLi = oNav.getElementsByTagName('li');
     var oContent = document.getElementById('content');
     var aA = oContent.getElementsByTagName('a');
-    var oPrev=document.getElementById('prev');
-    var oNext=document.getElementById('next');
-    var aSpan=document.getElementsByTagName('span');
-    var iNow=0;
+    var oPrev = document.getElementById('prev');
+    var oNext = document.getElementById('next');
+    var aSpan = document.getElementsByTagName('span');
     for (var i = 0; i < aLi.length; i++) {
         aLi[i].index = i;
         aLi[i].onmouseover = function () {
+            iNow = this.index;
             changeImg(this.index);
         };
-        aLi[i].onselectstart = function(){
+        aLi[i].onselectstart = function () {
             return false;
         };
     }
-    oPrev.onclick=function(){
+
+
+    var iNow = 0;
+    oPrev.onclick = function () {
         iNow--;
-        if(iNow==-1){
-            iNow=aLi.length-1;
+        if (iNow == -1) {
+            iNow = aLi.length - 1;
         }
         changeImg(iNow);
     };
-    oNext.onclick=function(){
+
+
+    oNext.onclick = function () {
         iNow++;
-        if(iNow==aLi.length){
-            iNow=0;
+        if (iNow == aLi.length) {
+            iNow = 0;
         }
         changeImg(iNow);
     };
-    aSpan.onselectstart = function(){
+    aSpan.onselectstart = function () {
         return false;
     };
+
 
     function changeImg(emel) {
         for (var i = 0; i < aLi.length; i++) {
@@ -134,6 +143,21 @@
     }
 
 
+    var timer;
+    function run() {
+        timer = setInterval(function () {
+            oNext.onclick();
+        }, 1000);
+    }
+    run();
+
+
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function () {
+        run();
+    };
 
 </script>
 </body>

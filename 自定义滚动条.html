@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义滚动条</title>
+    <style>
+        #container{
+            width: 300px;
+            height: 200px;
+            position:relative;
+            overflow: hidden;
+            background: #8ad263;
+            margin: 100px auto;
+        }
+        #content{
+            width: 280px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #scroll-bar{
+            width: 20px;
+            height: 200px;
+            background: #aaa;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #scroll-btn{
+            width: 20px;
+            height: 20px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+        hhahahhahahahahhhhhhhhhhahahahahahahahahahahah
+
+    </div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+</div>
+
+<script>
+    var oContainer=document.getElementById('containter');
+    var oContent=document.getElementById('content');
+    var oScrollBtn=document.getElementById('scroll-bth');
+    oScrollBtn.onmousedown=function(e){
+        e=e||window.event;
+        iDisY= e.clientY-oContainer.offsetTop;
+        document.onmousemove=function(e){
+            e=e||window.event;
+            var iTop= e.clientY-iDisY-oContainer.offsetTop;
+            oScrollBtn.style.top=iTop+'px';
+        }
+    }
+</script>
+</body>
+</html>
