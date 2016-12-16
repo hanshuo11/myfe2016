@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            list-style: none;
+        }
+        #containter{
+            width: 755px;
+            height: 400px;
+            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .6);
+            margin: 200px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #content li{
+            width: 150px;
+            height: 400px;
+
+            float: left;
+            position: relative;
+            transition: all 1s ease-out;
+            border-left: 1px solid #080808;
+        }
+        #content a{
+            width: 550px;
+            height: 20px;
+            position: absolute;
+            bottom: 0;
+            background: #080808;
+            color: #ffffff;
+            opacity: 0.6;
+        }
+        img{
+            width: 750px;
+            height: 400px;
+        }
+
+        #containter :hover li{
+            width: 50px;
+        }
+        #containter li:hover{
+            width: 550px;
+        }
+    </style>
+</head>
+<body>
+<div id="containter">
+    <ul id="content">
+        <li><a href="">描述1</a><img id="img1" src="img/7.jpg" alt=""/></li>
+        <li><a href="">描述2</a><img id="img2" src="img/2.jpg" alt=""/></li>
+        <li><a href="">描述3</a><img id="img3" src="img/3.jpg" alt=""/></li>
+        <li><a href="">描述4</a><img id="img4" src="img/4.jpg" alt=""/></li>
+        <li><a href="">描述5</a><img id="img5" src="img/5.jpg" alt=""/></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
