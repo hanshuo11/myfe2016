@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>简易照片墙</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #9f9f9f;
+        }
+        #container{
+            width: 600px;
+            margin:200px auto;
+        }
+        #container img{
+            width: 600px;
+            height: 360px;
+            border: 5px solid #eefff6;
+            position: absolute;
+            box-shadow: 5px 5px 5px #808080;
+            transition: all 1s ease ;
+        }
+        #container img:first-child{
+            transform: rotate(20deg);
+        }
+        #container img:last-child{
+            transform: rotate(-20deg);
+        }
+        #container img:hover{
+            z-index: 1;
+            transform: rotate(0deg) scale(1.2);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <img src="img/1.jpg" alt="#"/>
+    <img src="img/2.jpg" alt="#"/>
+</div>
+</body>
+</html>

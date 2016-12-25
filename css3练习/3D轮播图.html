@@ -1,0 +1,114 @@
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 600px;
+            height: 400px;
+            margin: 200px auto;
+            position: relative;
+        }
+        #imgs{
+            perspective: 1000px;
+        }
+        #imgs img{
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            transform-origin: bottom;
+            transform: rotatex(-180deg);
+            opacity: 0;
+            transition: all 0.5s ease-in;
+        }
+        #arrow span{
+            width: 50px;
+            height: 50px;
+            background: #cccccc;
+            border-radius: 50% ;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        #imgs .show{
+            animation: show 1s ease forwards;
+        }
+        @keyframes show {
+            from{
+
+            }
+            to{
+                transform: rotateX(-360deg);
+                opacity: 1;
+            }
+        }
+        #imgs .hidden{
+            animation: hidden 0.5s ease forwards;
+        }
+        @keyframes hidden{
+            from{
+                transform: rotateX(0deg);
+                opacity: 1;
+            }
+            to{
+                transform: rotateX(-180deg);
+                opacity: 0;
+            }
+        }
+
+        #prev{
+            left: -100px;
+        }
+        #next{
+            right:-100px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+        <img src="img/1.jpg" alt="" style="z-index:4" class="show"/>
+        <img src="img/2.jpg" alt="" style="z-index:3"/>
+        <img src="img/3.jpg" alt="" style="z-index:2"/>
+        <img src="img/4.jpg" alt="" style="z-index:1"/>
+    </div>
+    <div id="arrow">
+        <span id="next">&gt</span>
+        <span id="prev">&lt</span>
+    </div>
+</div>
+<script>
+    var oNext=document.getElementById('next');
+    var oPrev=document.getElementById('prev');
+    var oImgs=document.getElementById('imgs');
+    var aImg=document.getElementsByTagName('img');
+    var iNow=0;
+    oNext.onclick=function(){
+        aImg[iNow].className='hidden';
+        iNow++;
+        if(iNow==aImg.length){
+            iNow=0;
+        }
+        aImg[iNow].className='show';
+    }
+    oPrev.onclick=function(){
+        aImg[iNow].className='hidden';
+        iNow--;
+        if(iNow==-1){
+            iNow=aImg.length-1;
+        }
+        aImg[iNow].className='show';
+    }
+
+</script>
+</body>
+</html>
