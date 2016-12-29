@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <base href=" <%=basePath%> ">
+    <meta charset="utf-8">
+    <title>jQuery Examples</title>
+
+</head>
+<body>
+
+<div>
+    <form action="" method="post">
+        <label for="username">用户名</label>
+        <input id="username" type="text" name="inputlength" required>
+        <br/>
+        <button id="btnlength" type="submit" disabled>提交</button>
+    </form>
+</div>
+<hr/>
+
+<div>
+    <form action="" method="post">
+        <input id="legal" type="checkbox">
+        <label for="legal">我已阅读相关说明并遵守相关法律</label>
+        <br/>
+        <fieldset id="fieldset" disabled>
+            <legend>其他信息</legend>
+            <input type="checkbox" id="course">
+            <label for="course">Web开发技术</label>
+            <br/>
+            <label for="photo">照片</label>
+            <input id="photo" type="file" accept=".jpg; .png">
+        </fieldset>
+    </form>
+</div>
+<hr/>
+<button id="implbutton">实现功能</button>
+<button id="closebutton">关闭功能</button>
+<div id="impldiv" hidden="">
+    <ul>
+        <li>实现1</li>
+        <li>实现2</li>
+        <li>实现3</li>
+    </ul>
+</div>
+<div id="closediv" hidden="">
+    <ul>
+        <li>关闭1</li>
+        <li>关闭2</li>
+        <li>关闭3</li>
+    </ul>
+</div>
+<hr/>
+
+<form action="" method="post">
+    <label for="section12">
+        <input type="radio" name="section" id="section12"> 第一、二节
+    </label>
+    <label for="section34">
+        <input type="radio" name="section" id="section34"> 第三、四节
+    </label>
+    <label for="section56">
+        <input type="radio" name="section" id="section56"> 第五、六节
+    </label>
+    <label for="section78">
+        <input type="radio" name="section" id="section78"> 第七、八节
+    </label>
+    <label for="section910">
+        <input type="radio" name="section" id="section910"> 第九、十节
+    </label>
+    <br/>
+    <label for="stime-input">开始时间</label>
+    <input type="text" required id="stime-input"/> <br/>
+    <label for="etime-input">结束时间</label>
+    <input type='text' required id="etime-input"/>
+</form>
+<hr/>
+<form action="" method="post">
+    <label for="radio1">
+        <input type="radio" name="student" value="1" id="radio1"> 王波
+        (男, 软件1班)
+    </label>
+    <label for="radio2">
+        <input type="radio" name="student" value="2" id="radio2"> 孙哲
+        (女, 软件2班)
+    </label>
+    <input id="hidden_radio" type="hidden">
+</form>
+<hr/>
+<div>
+    <form action="" method="post">
+        <ul>
+            <li>
+                <input type="checkbox" id="course_1" name="courses">
+                <label for="course_1">Web开发技术</label>
+            <li>
+                <input type="checkbox" id="course_2" name="courses">
+                <label for="course_2">Java程序设计语言</label>
+            <li>
+                <input type="checkbox" id="course_3" name="courses">
+                <label for="course_3">数据库原理</label>
+            <li>
+                <input type="checkbox" id="course_4" name="courses">
+                <label for="course_4">系统分析与测试</label>
+            </li>
+        </ul>
+        <button type="submit" id="btncourse" disabled>submit</button>
+    </form>
+</div>
+<!-- JS -->
+<script src="bootstrap/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        /* input */
+        $('input[name=inputlength]').blur(function () {
+            if ($(this).val().length > 0) {
+                $('#btnlength').prop('disabled', false);
+            } else {
+                $('#btnlength').prop('disabled', true);
+            }
+        });
+        /* checkbox */
+        $('#legal').click(function () {
+            if ($(this).is(':checked')) {
+                $('#fieldset').prop('disabled', false);
+            } else {
+                $('#fieldset').prop('disabled', true);
+            }
+        });
+        /* Toggle */
+        $('#implbutton').click(function () {
+            $('#closediv').slideUp('slow');
+            $('#impldiv').slideToggle('slow');
+        });
+        $('#closebutton').click(function () {
+            $('#impldiv').slideUp('slow');
+            $('#closediv').slideToggle('slow');
+        });
+        /* 选取name=section的input */
+        $('input[name=section]').click(function () {
+            var stime;
+            var etime;
+            switch ($(this).prop('id')) {
+                case "section12":
+                    stime = "08:00";
+                    etime = "10:00";
+                    break;
+                case "section34":
+                    stime = "10:05";
+                    etime = "12:00";
+                    break;
+                case "section56":
+                    stime = "13:30";
+                    etime = "15:30";
+                    break;
+                case "section78":
+                    stime = "15:35";
+                    etime = "17:35";
+                    break;
+                case "section910":
+                    stime = "18:00";
+                    etime = "20:00";
+                    break;
+            }
+            $('#stime-input').val(stime);
+            $('#etime-input').val(etime);
+        });
+        /* 无法基于radio checked状态判断，因为每次点击时均为checked状态 */
+        $('input[name=student]').click(function () {
+            var val = $(this).val();
+// 与隐藏域比较，不同则是首次选中，为隐藏域赋值
+            if (val != $('#hidden_radio').val()) {
+                $('#hidden_radio').val(val);
+            } else {
+// 相同，则说明是再次点击，取消选中状态，并置空隐藏域
+                $(this).prop("checked", false);
+                $('#hidden_radio').val('');
+            }
+        });
+        /* checkbox checked数量状态控制 */
+        var amount = 2;
+        $('input[name=courses]').click(function () {
+// checkbox name=courses的，状态为选中状态的，全部对象
+            var currentChecked = $('input[name=courses]:checked');
+            if (currentChecked.length == amount) {
+// 所有checkbox置为disabled
+                $('input[name=courses]').prop('disabled', true);
+//
+                $('#btncourse').prop('disabled', false);
+// 当前为选中状态的对象再置为可用状态，排除已选中checkbox，
+                currentChecked.prop('disabled', false);
+            } else {
+                $('#btncourse').prop('disabled', true);
+                $('input[name=courses]').prop('disabled', false);
+            }
+        });
+    });
+</script>
+</body>
+</html>
