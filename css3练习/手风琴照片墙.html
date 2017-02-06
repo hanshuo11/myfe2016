@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>手风琴照片墙</title>
     <style>
         *{
             margin: 0;
@@ -11,28 +11,26 @@
         a{
             text-decoration: none;
         }
-        ul{
+        li{
             list-style: none;
         }
         img{
+            height: 400px;
+            width: 750px;
+        }
+        #container{
             width: 750px;
             height: 400px;
-        }
-        #containter{
-            width: 755px;
-            height: 400px;
-            box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .6);
             margin: 200px auto;
-            position: relative;
             overflow: hidden;
+            position: relative;
         }
         #content li{
+            float: left;
             width: 150px;
             height: 400px;
-            float: left;
+            transition: all 1s ease;
             position: relative;
-            transition: all 1s ease-out;
-            border-left: 1px solid #080808;
         }
         #content a{
             width: 550px;
@@ -44,24 +42,23 @@
             opacity: 0.6;
         }
 
-
-        #containter :hover li{
+        #container:hover li{
             width: 50px;
         }
-        #containter li:hover{
+        #container li:hover{
             width: 550px;
         }
     </style>
 </head>
 <body>
-<div id="containter">
+<div id="container">
     <ul id="content">
-        <li><a href="">描述1</a><img id="img1" src="../img/7.jpg" alt=""/></li>
-        <li><a href="">描述2</a><img id="img2" src="../img/2.jpg" alt=""/></li>
-        <li><a href="">描述3</a><img id="img3" src="../img/3.jpg" alt=""/></li>
-        <li><a href="">描述4</a><img id="img4" src="../img/4.jpg" alt=""/></li>
-        <li><a href="">描述5</a><img id="img5" src="../img/5.jpg" alt=""/></li>
-    </ul>
-</div>
+        <li><a href="">描述</a><img src="../img/1.jpg" alt=""/></li>
+        <li><a href="">描述</a><img src="../img/2.jpg" alt=""/></li>
+        <li><a href="">描述</a><img src="../img/3.jpg" alt=""/></li>
+        <li><a href="">描述</a><img src="../img/4.jpg" alt=""/></li>
+        <li><a href="">描述</a><img src="../img/5.jpg" alt=""/></li>
+    </ul></div>
+
 </body>
 </html>
