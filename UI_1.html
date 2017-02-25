@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>jqueryUI</title>
+    <link rel="stylesheet" href="jqueryUI/css/base/jquery-ui-1.10.4.custom.css" />
+    <script src="jqueryUI/js/jquery-1.10.2.js"></script>
+    <script src="jqueryUI/js/jquery-ui-1.10.4.custom.min.js"></script>
+
+</head>
+<body>
+<label for="language">请输入内容</label>
+<input type="text" name="language" id="language" style="width: 220px"/>
+<script>
+
+    $("#language").autocomplete({
+        source: [
+            "Chinese",
+            "English",
+            "Spanish",
+            "Russian",
+            "French",
+            "Japanese",
+            "Korean",
+            "German"
+        ]
+    });
+</script>
+</body>
+</html>

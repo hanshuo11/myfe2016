@@ -20,8 +20,8 @@
         #container {
             width: 700px;
             height: 400px;
-            margin: 50px auto;
-            position: relative;
+            position: absolute;
+
         }
 
         #container li, #arrows span {
@@ -34,6 +34,7 @@
             float: left;
             margin-right: 5px;
             cursor: pointer;
+            border-radius:50%;
         / /鼠标经过变成小手！/ /
         }
 
@@ -50,21 +51,29 @@
             display: block;
         }
 
-        #arrows {
+        #prev {
             position: absolute;
-            left: 20px;
-            bottom: 10px;
-            float: left;
+            top: 180px;
+            left: 10px;
+            font-size: 25px;
+        }
+        #next{
+            position: absolute;
+            top: 180px;
+            right: 10px;
+            font-size: 25px;
         }
 
         #nav {
             position: absolute;
             right: 20px;
             bottom: 10px;
+
         }
 
         #nav .selected{
-            background:orange;
+            background: #ff920b;
+
         }
 
     </style>
@@ -72,10 +81,10 @@
 <body>
 <div id="container">
     <ul id="nav">
-        <li class="selected">1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li class="selected"></li>
+        <li></li>
+        <li></li>
+        <li></li>
     </ul>
 
     <div id="content">

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>山寨星巴克</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<div id="head">
+    <div id="nav">
+        <img src="img/menu_icon.svg" alt=""><br/>
+        <a href="#side-bar">菜单</a>
+    </div>
+    <div id="logo">
+        <img src="img/logo.svg" alt=""/>
+    </div>
+    <div id="login">
+        <span>星享俱乐部</span><br>
+        <a href="javascript:;">登录</a>
+        或
+        <a href="javascript:;">注册</a>
+    </div>
+</div>
+<div id="banner">
+    <img src="img/banner01.jpg" alt=""/>
+    <img src="img/banner02.jpg" alt=""/>
+</div>
+<div id="rewards">
+    <div id="container">
+        <div id="content"></div>
+        <div id="content2"></div>
+    </div>
+</div>
+
+<!--侧边栏菜单-->
+<div id="said-bar">
+    <div id="mask"></div>
+    <ul id="menu">
+        <li>145645645</li>
+        <li>14564564</li>
+        <li>145645645</li>
+        <br/>
+        <li>1456456</li>
+        <li>1546456</li>
+        <li>1456454564564</li>
+        <li>145645</li>
+        <li>145645</li>
+        <li>145645</li>
+        <li>1456</li>
+        <li>1456</li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(function () {
+        $('#nav').on('click', function () {
+            $('#said-bar').css({
+                width:'2000px'
+            });
+            $('#menu li').css({
+                display:'block'
+            });
+            $('#menu ').css({
+                width:'270px'
+            });
+            $('#mask').css({
+                display:'block'
+            });
+        })
+        $('#mask').on('click',function(){
+            $('#said-bar').css({
+                width:'0'
+            });
+            $('#menu li').css({
+                display:'none'
+            });
+            $('#menu ').css({
+                width:'0'
+            });
+            $('#mask').css({
+                display:'none'
+            });
+        })
+        $(window).on('scroll',function(){
+            if($(this).scrollTop()>0){
+                $('#mask').trigger('click');
+            }
+            console.log($(this).scrollTop());
+        })
+    })
+</script>
+</body>
+</html>

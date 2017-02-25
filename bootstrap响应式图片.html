@@ -1,18 +1,113 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="zh-hans">
 <head>
-    <title>Bootstrap 模板</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
-    <script src="bootstrap/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <!--在使用前必须引用bootstrap，meta是自适应功能，添加后可以在移动端使用-->
+    <title>Bootstrap导航栏</title>
     <style>
+        body{
+            padding-top: 70px
+        }
+        .navbar-inverse input[type="text"] {
+            background: #313131;
+            border: none;
+            color: #999;
+        }
+
+        .navbar-inverse .navbar-form {
+            position: relative;
+        }
+
+        .navbar-inverse button[type="submit"] {
+            position: absolute;
+            top: 30%;
+            right: 20px;
+            background: none;
+            border: none;
+        }
+        @media(min-width: 768px) {
+            .navbar-inverse button[type="submit"] {
+                top: 15%;
+            }
+        }
+
+        .navbar-inverse .glyphicon {
+            color: #999;
+        }
+
+        .profile {
+            margin-right: 25px;
+        }
+        .modal-content{
+            background: black;
+        }
     </style>
 </head>
 <body>
-<abbr title="World Wide Web">WWW</abbr><br>
-<abbr title="Real Simple Syndication" class="initialism">RSS</abbr>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+            <div class="navbar-header">
+                <a href="" class="navbar-brand"><strong>Hs6666 .cn</strong></a>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="responsive-navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="">我的首页</a></li>
+                    <li><a href="">课程</a></li>
+                    <li><a href="">myblog</a></li>
+                    <li><a href="">hahaha</a></li>
+                </ul>
+
+                    <form action="" class="  navbar-form navbar-left ">
+                        <input type="text" placeholder="搜索" class="form-control"/>
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+
+
+                <a href="#" class="btn btn-danger btn-sm navbar-btn navbar-right hidden-xs">订阅</a>
+                <div class="profile navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li><a href="" data-toggle="modal" data-target="#login-modal">登陆</a></li>
+                        <li><a href="">注册</a></li>
+                    </ul>
+                    <!--<p class="navbar-text">您好，<a href="" class="navbar-link">LaLa</a></p>-->
+                </div>
+
+            </div>
+        </div>
+
+</nav>
+
+<!--幻灯片-->
+<div class="container">
+
+</div>
+
+<!--弹出登录表-->
+<div class="modal fade in" id="login-modal" tabindex="-1" >
+    <div class="modal-dialog" >
+        <div class="modal-content"  style="width: 60%;height: 900px; margin: -30px 0 0 -470px;">
+            <div class="modal-body">
+                <p>登录表</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./bootstrap/jquery.js"></script>
+<script src="./bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 </html>

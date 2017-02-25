@@ -1,0 +1,177 @@
+/* 通用样式开始 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+html {
+    font-size: 16px;
+    font-family: AvenirRoman, HelveticaNeue-Light, Helvetica Neue, arial, Hiragino Sans GB, 冬青黑体, Microsoft YaHei New, Microsoft Yahei, 微软雅黑, 宋体, SimSun, STXihei, 华文细黑, sans-serif;
+}
+
+body {
+    height: 2000px;
+}
+
+/* 通用样式结束 */
+#head {
+    height: 100px;
+    display: -webkit-box;
+    padding: 0 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+
+}
+
+#head > div {
+    -webkit-box-flex: 1;
+}
+#nav{
+    height: 46px;
+    margin-top: 30px;
+    opacity: .6;
+}
+#nav:hover{
+    opacity: 1;
+}
+#nav a{
+    font-size: 0.8rem;
+    color: #000;
+    width: 40px;
+    text-align: center;
+    display: block;
+}
+#nav img{
+    width: 40px;
+    height: 20px;
+    text-align: center;
+}
+#logo{
+    text-align: center;
+}
+#logo img{
+    width: 73px;
+    margin-top: 14px;
+}
+#login{
+    height: 40px;
+    margin-top: 30px;
+    text-align: right;
+    font-size: 1rem;
+}
+#login a{
+    color: #ff920b;
+    font-weight: bolder
+}
+#login a:hover{
+    color: #808080;
+}
+#rewards{
+    width: 1520px;
+    height: 220px;
+    background: #003eff;
+    margin-top: -4px;
+}
+#container{
+    width: 1170px;
+    height: 220px;
+    margin: 0 auto;
+    background: #8ad263;
+}
+#content{
+
+}
+#content2{
+
+}
+
+
+
+/*弹出层背景start*/
+#said-bar{
+    /*background: #000000;*/
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    /*transition: all 1s ease;*/
+}
+#mask{
+    background: #000000;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+/*end*/
+
+/*弹出层菜单start*/
+#menu{
+    position: absolute;
+    width: 0px;
+    height: 1000px;
+    background: #111111;
+    top: 0;
+    transition: all 0.5s;
+}
+#menu li{
+    width:0px;
+    height: 46px;
+    margin: 2px 0 0 0;
+    padding-left: 10px;
+    padding-top: 5px;
+    color: #FFFFFF;
+    text-align: center;
+    display: none;
+}
+
+/*end*/
+#banner{
+    margin-top: 100px;
+}
+#banner img{
+    width: 100%;
+    /*float: left;*/
+}
+#banner img:nth-child(2){
+    display: none;
+}
+/*媒体查询  */
+@media (max-width: 750px) {
+    html{
+        font-size: 14px;
+    }
+    #head{
+        padding: 0 15px;
+    }
+    #banner img:nth-child(1) {
+        display: none;
+    }
+    #banner img:nth-child(2) {
+        display: block;
+    }
+}
