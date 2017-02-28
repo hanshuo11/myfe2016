@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>旋转按钮</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            position: relative;
+            top: 300px;
+            left: 1000px;
+            width: 50px;
+            height: 50px;
+        }
+        #home{
+            width: 50px;
+            height: 50px;
+        }
+        img{
+            transition: all 1s ease;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="menu">
+        <img src="img/close.png" alt=""/>
+        <img src="img/full.png" alt=""/>
+        <img src="img/open.png" alt=""/>
+        <img src="img/prev.png" alt=""/>
+        <img src="img/refresh.png" alt=""/>
+    </div>
+    <div id="home">
+        <img src="img/home.png" alt=""/>
+    </div>
+</div>
+<script>
+    var oHome=document.getElementById('home');
+    var oMenu=document.getElementById('menu');
+    var aImgs=oMenu.getElementsByTagName('img');
+    var bflag=false;//标识位false表示处于关闭状态，ture表示处于打开状态。
+    oHome.onclick=function(){
+        if(bflag){//要关闭了
+            this.style.transform='rotate(0deg)'
+            for(var i=0;i<aImgs.length;i++) {
+                aImgs[i].style.transform = "translate(0,0) rotate(0deg)";
+                aImgs[i].style.transitionDelay=i*40+"ms";
+            }
+        }else{//要打开了
+            this.style.transform='rotate(360deg)';
+            for(var i=0;i<aImgs.length;i++){
+                var X=-150*Math.cos(22.5*i*Math.PI/180);
+                var Y=-150*Math.sin(22.5*i*Math.PI/180);
+                aImgs[i].style.transform="translate("+X+"px,"+Y+"px) rotate(-360deg)";
+                aImgs[i].style.transitionDelay=aImgs.length-i*40+"ms";
+            }
+        }
+        bflag=!bflag;
+    }
+
+
+    for(var i=0;i<aImgs.length;i++){
+        aImgs[i].JudegTransform="";
+        aImgs[i].onclick=function(){
+            this.JudegTransform=this.style.transform;
+            if( this.JudegTransform.indexOf("scale(1.5)")==-1){
+                this.style.transform=this.JudegTransform+"scale(1.5)";
+            }else{
+                this.style.transform=this.JudegTransform.replace(/scale\(1.5\)/g,"");
+            }
+            this.addEventListener("webkitTransitionEnd",fn);
+            function fn(){
+                if(this.JudegTransform.indexOf("scale(1.5)")!=-1){
+                    this.style.transform=this.JudegTransform.replace(/scale\(1.5\)/g,"");
+                }
+                this.style.transform=this.JudegTransform;
+                this.removeEventListener("webkitTransitionEnd",fn);
+            }
+        };
+
+    }
+</script>
+</body>
+</html>
