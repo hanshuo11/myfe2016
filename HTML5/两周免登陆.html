@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>免登陆</title>
+</head>
+<body>
+<form action="index.php" id="form1">
+    username: <input type="text" id="username" /> <br/>
+    password: <input type="text" id="password"/> <br/>
+    两周免登陆：<input type="checkbox" id="check"/> <input type="submit"/>
+</form>
+<script>
+    var oForm=document.getElementById('form1');
+    var oUsername=document.getElementById('username');
+    var oPassword=document.getElementById('password');
+    var oCheck=document.getElementById('check');
+
+    oForm.onsubmit=function(){
+        if(oCheck.checked){
+            var username=oUsername.value;
+            var password=oPassword.value;
+            setCookie('username',username,14);
+            setCookie('password',password,14);
+        }
+    }
+//    var user = getCookie('username');
+//    var pwd = getCookie('password');
+//    if(user&&pwd){
+//        oUsername.value = user;
+//        oPassword.value= pwd;
+//        oForm.submit();
+//    }
+
+
+
+    function setCookie(key,value,day){
+        var str = key +"="+value+";";
+        if(day){
+            var date = new Date();
+            date.setDate(date.getDate()+day);
+
+            str += 'expires='+date
+            ;
+        }
+        document.cookie = str;
+    }
+
+    function getCookie(key){
+        var str = document.cookie; //"age=18; name=xxx"
+        var arr = str.split('; ');  //['age=18','name=xxx'];
+        for(var i=0; i<arr.length; i++){
+            var arr1 = arr[i].split('=');  //['age','18']   ['name','xxx']
+            if(arr1[0] == key){
+                return arr1[1];
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
