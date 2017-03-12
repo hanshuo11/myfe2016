@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input id="lala" type="text" value="hahahaha" disabled="true"/>
+<input id="haha" type="text" value="hahahaha" readonly="true"/>
+<script>
+    var disabled=document.getElementById('lala');
+    var readonly=document.getElementById('haha');
+    disabled.value=2;
+    readonly.value=3;
+</script>
+</body>
+</html>

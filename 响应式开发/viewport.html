@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #header_fix{
+            width: 100%;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            display: none;
+        }
+        #header_fix h3{
+            width: 960px;
+            height: 80px;
+            background: #9f9f9f;
+            margin:  0 auto;
+
+            /*text-align: center;*/
+            /*line-height: 80px;*/
+        }
+
+        header{
+            margin: 0 auto;
+        }
+
+        h3 {
+            width: 960px;
+            height: 80px;
+            background: #9f9f9f;
+            margin:  10px auto;
+            text-align: center;
+            line-height: 80px;
+        }
+
+
+        figure {
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            background: url("01.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+        /*figure{*/
+            /*width: 960px;*/
+            /*margin: 0 auto;*/
+        /*}*/
+
+        /*figure img {*/
+            /*width: 960px;*/
+        /*}*/
+
+        section {
+            width: 960px;
+            margin: 30px auto;
+        }
+
+        #left {
+            width: 630px;
+            height: 300px;
+            background: #00A5FF;
+            float: left;
+            margin-right: 30px;
+        }
+
+        #right {
+            width: 300px;
+            height: 300px;
+            background: #ff920b;
+            float: right;
+
+        }
+
+        #left, #right {
+            display: table;
+        }
+
+        #left p, #right p {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        section p {
+            text-align: center;
+        }
+
+        footer {
+            clear: both;
+        }
+
+        @media (max-width: 959px) {
+            /*figure{*/
+            /*width: 100%;*/
+            /*}*/
+            /*figure img{*/
+            /*width: 100%;*/
+            /*}*/
+            figure{
+                width: 100%;
+                height: 0;
+                padding-top: 56%;
+                background: url("01_s_2x.jpg");
+            }
+            
+            h3 {
+                width: 100%;
+            }
+            section{
+                width: 100%;
+            }
+            #left {
+                width: 67%;
+                margin-right: 3%;
+            }
+
+            #right {
+                width: 30%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            figure{
+                width: 100%;
+                height: 0;
+                padding-top: 56%;
+                background: url("01_s.jpg");
+            }
+            /*figure{*/
+                /*width: 100%;*/
+            /*}*/
+            /*figure img{*/
+                /*width: 100%;*/
+            /*}*/
+            #left {
+                width: 100%;
+
+            }
+            #right {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="header_fix">
+    <h3>导航</h3>
+</div>
+
+<header id="header1">
+    <h3>导航</h3>
+</header>
+
+
+<nav>
+    <h3>头部</h3>
+</nav>
+<figure>
+    <!--<img src="01.jpg" alt="#"/>-->
+</figure>
+<section>
+    <abside id="left">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus
+            vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam
+            quis magna facilisis, eget feugiat nisi lacinia.
+        </p>
+    </abside>
+    <abside id="right">
+        <p>
+            Donec dolor arcu, interdum sed turpis faucibus, placerat ultricies felis. Donec pulvinar gravida rhoncus.
+            Suspendisse vestibulum est eget dolor lobortis.
+        </p>
+    </abside>
+</section>
+<footer>
+    <h3>底部</h3>
+</footer>
+<script>
+    var oHeader=document.getElementById('header_fix');
+    var oHeader1=document.getElementById('header1');
+    window.onscroll=function(){
+        //获取当前滚动条的高度
+        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+        console.log(scrollTop);
+        if(scrollTop>oHeader1.offsetTop){
+            oHeader.style.display='block';
+        }else{
+            oHeader.style.display='none';
+        }
+    }
+</script>
+</body>
+</html>
