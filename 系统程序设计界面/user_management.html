@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>软件工程</title>
+
+    <!--data table-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
+          rel="stylesheet"/>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html">XH manage</a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>监考管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考信息</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list active"><a href=""><i class="fa fa-book"></i> <span>工作管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考管理</a></li>
+                        <li class="active"><a href="user_management.html">用户管理</a></li>
+                        <li><a href="blank_page.html">任务管理</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">系统设置</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>任务管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考信息</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>注销</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">1</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">消息提醒</h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">请注意，您在5月31日有监考！</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="">
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/SuperUser.png" alt="">
+                            超级管理员
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out"></i>注销</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            用户管理表
+                        </header>
+                        <div id="user_table" class="panel-body">
+                            <div class="adv-table">
+                                <div class="clearfix">
+                                    <div class="btn-group">
+                                        <form class="form-inline">
+                                            <div class="form-group">
+                                                <input name="user_name" type="text" class="form-control"
+                                                       placeholder="用户名">
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="password" type="text" class="form-control"
+                                                       placeholder="密码">
+                                            </div>
+                                            <div class="form-group">
+                                                <input name="profession" type="text" class="form-control"
+                                                       placeholder="职位">
+                                            </div>
+                                            <div class="form-group">
+                                                <select id="rank" name="rank" class="form-control">
+                                                    <option value="2">教师</option>
+                                                    <option value="3">专业主任</option>
+                                                </select>
+                                            </div>
+                                            <button id="add_user" type="button" class="btn btn-primary">添加</button>
+                                            <button id="delete_user" type="button" @click="delete_user"
+                                                    class="btn btn-danger">删除选择用户
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <table id="table" class="table table-striped table-hover table-bordered">
+
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<script src="js/bootstrap-table-editable.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- END JAVASCRIPTS -->
+<script>
+
+    var $table = $('#table');
+    $table.bootstrapTable({
+        toolbar: '#toolbar',  //工具按钮用哪个容器
+        striped: true,   //是否显示行间隔色
+        singleSelect: false,
+        sortStable: true,
+        sortName: 'id',
+        sortOrder: "desc",
+        pagination: true, //分页
+        pageNumber: 1,   //初始化加载第一页，默认第一页
+        pageSize: 5,   //每页的记录行数（*）
+        pageList: [5, 10], //可供选择的每页的行数（*）
+        search: true, //显示搜索框
+        sidePagination: "client", //服务端处理分页
+        columns: [
+            {
+                field: 'id',
+                title: '选择',
+                formatter: function (value, row, index) {
+                    return "<input  value=\"" + row.id + "\"  type=\"checkbox\">选择该用户";
+                }
+            },
+            {
+                field: 'userName',
+                title: '用户名',
+                editable: {
+                    type: 'text',
+                    title: '用户名',
+                    validate: function (v) {
+                        if (!$.trim(v)) return '不能为空';
+                    }
+                }
+            }, {
+                field: 'password',
+                title: '用户密码',
+                editable: {
+                    type: 'text',
+                    title: '用户密码',
+                    validate: function (v) {
+                        if (!$.trim(v)) return '不能为空';
+                    }
+                }
+            }, {
+                field: 'profession',
+                title: '职位',
+                editable: {
+                    type: 'text',
+                    title: '职位',
+                    validate: function (v) {
+//                        if (isNaN(v)) return '序号必须是数字';
+//                        var age = parseInt(v);
+//                        if (age <= 0) return '序号必须是正整数';
+                        if (!$.trim(v)) return '不能为空';
+                    }
+                }
+            },
+            {
+                title: '权限',
+                field: 'rank',
+                align: 'center',
+                editable: {
+                    type: 'select',
+                    title: '权限',
+                    source: [{value: "2", text: "专业主任"}, {value: "3", text: "教师"}]
+                }
+            }
+        ],
+        data: [{
+            id: 1,
+            userName: '刘乾瑜',
+            password: 5678,
+            profession: '副教授',
+            rank_id: 3
+        }, {
+            id: 2,
+            userName: '韩硕',
+            password: 1234,
+            profession: '教授',
+            rank_id: 2
+        }],
+        onEditableSave: function (field, row, oldValue, $el) {
+//            row就是当前这一行的json形式例如：{id: 1, userName: "刘乾瑜", password: "56788", profession: "副教授", rank_id: 3}
+            console.log(row);
+//            $.ajax({
+//                type: "post",
+//                url: "/Editable/Edit",
+//                data: row,
+//                dataType: 'JSON',
+//                success: function (data, status) {
+//                    if (status == "success") {
+//                        alert('提交数据成功');
+//                    }
+//                },
+//                error: function () {
+//                    alert('编辑失败');
+//                },
+//                complete: function () {
+//
+//                }
+//
+//            });
+        }
+    });
+
+
+    //添加用户发送ajax请求
+    $('#add_user').on('click', function () {
+        var n=100;
+        var id=n++;
+        var userName=$("input[name^='user_name']").val();
+        var password=$("input[name^='password']").val();
+        var profession=$("input[name^='profession']").val();
+        var rank=$("#rank").val();
+        var index = $table.bootstrapTable('getData').length;
+        $table.bootstrapTable('insertRow', {
+            index: index,
+            row: {
+                id: id,
+                userName: userName,
+                password: password,
+                profession: profession,
+                rank_id: rank
+            }
+        });
+        $.post('url', {
+            'userName': userName,
+            'password': password,
+            'profession': profession,
+            'rank': rank
+        }, function (data) {
+            if (data == 'ok') {
+
+            } else {
+                alert('删除失败!');
+            }
+        }, 'text');
+
+    });
+
+    //    删除用户发送ajax请求
+    $('#delete_user').on('click', function () {
+//        选择多个str为选择的id 例如“ 1,2,3  或者  1 ”
+        var str = "";
+        $('.table :checked').each(function () {
+            str += this.value + ',';
+        });
+        str = str.slice(0, -1);
+        $.get('url', {
+            'ids': str
+        }, function (data) {
+            if (data == 'ok') {
+                $('#table :checked').parent().parent().fadeOut(800, function () {
+                    $(this).remove();
+                });
+            } else {
+                alert('删除失败!');
+            }
+        }, 'text');
+    });
+</script>
+
+</body>
+</html>
