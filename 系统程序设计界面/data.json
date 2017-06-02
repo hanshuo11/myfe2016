@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "userName": "刘乾瑜",
+    "password": 5678,
+    "profession": "副教授",
+    "rank": 3
+  }, {
+  "id": 1,
+  "userName": "hanshuo",
+  "password": 1234,
+  "profession": "教授",
+  "rank": 2
+}
+]
+
