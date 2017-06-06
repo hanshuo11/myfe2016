@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>软件工程</title>
+
+
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css'/>
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html">XH manage</a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>监考管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考信息</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>工作管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考管理</a></li>
+                        <li><a href="user_management.html">用户管理</a></li>
+                        <li><a href="blank_page.html">任务管理</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list  active"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="system_setup.html">系统设置</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>任务管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html">监考信息</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>注销</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">1</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">消息提醒</h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">请注意，您在5月31日有监考！</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="">
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/SuperUser.png" alt="">
+                            超级管理员
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out"></i>注销</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel date_height">
+                        <header class="panel-heading">
+                            系统设置
+                        </header>
+                        <h3 class="date_header">学期基点设置：</h3>
+                        <div class="input-append date form_datetime content_date">
+                            <input id="change_date" size="20" type="text" value="" readonly>
+                            <span id="add-on" class="add-on"><i class="icon-th"></i></span>
+                        </div>
+                        <h5 class="date_notice">注意：基点时间只能设置为每周周日！</h5>
+                        <button id="add_date" type="button" class="btn btn-info">保存</button>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- END JAVASCRIPTS -->
+<script>
+    $(function () {
+        $(".form_datetime").datetimepicker({
+            format: "yyyy.mm.dd",
+            startDate:0,
+            autoclose: true,
+            minView: 2,
+            daysOfWeekDisabled: [1, 2, 3, 4, 5, 6]
+        });
+//        点击保存发送ajax请求修改基点时间
+        $("#add_date").on('click', function () {
+            if($('#change_date').val()==''){
+                alert('基点时间不能为空！')
+            }else{
+                $.post("url", {date: $('#change_date').val()},
+                    function (data) {
+                        if (data == 'ok') {
+                            alert('基点时间已成功设置为'+$('#change_date').val())
+                        } else {
+                            alert('基点时间设置失败！')
+                        }
+                    }, "text");
+            }
+
+        });
+    })
+
+</script>
+
+</body>
+</html>

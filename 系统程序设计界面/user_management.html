@@ -55,7 +55,7 @@
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="blank_page.html">系统设置</a></li>
+                        <li><a href="system_setup.html">系统设置</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>任务管理</span></a>
@@ -192,20 +192,26 @@
 <!-- END JAVASCRIPTS -->
 <script>
 
+
     var $table = $('#table');
     $table.bootstrapTable({
-        toolbar: '#toolbar',  //工具按钮用哪个容器
+        url: 'data.json',         //请求后台的URL（*）
+        method: 'get',                      //请求方式（*）
         striped: true,   //是否显示行间隔色
         singleSelect: false,
         sortStable: true,
         sortName: 'id',
+        sortable: true,
         sortOrder: "desc",
         pagination: true, //分页
         pageNumber: 1,   //初始化加载第一页，默认第一页
         pageSize: 5,   //每页的记录行数（*）
         pageList: [5, 10], //可供选择的每页的行数（*）
         search: true, //显示搜索框
-        sidePagination: "client", //服务端处理分页
+        sidePagination: "client", //服务端处理分页,
+        showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+        showColumns: true,                  //是否显示所有的列
+        showRefresh: true,                  //是否显示刷新按钮
         columns: [
             {
                 field: 'id',
@@ -217,6 +223,7 @@
             {
                 field: 'userName',
                 title: '用户名',
+                sortable:true,
                 editable: {
                     type: 'text',
                     title: '用户名',
@@ -259,19 +266,7 @@
                 }
             }
         ],
-        data: [{
-            id: 1,
-            userName: '刘乾瑜',
-            password: 5678,
-            profession: '副教授',
-            rank_id: 3
-        }, {
-            id: 2,
-            userName: '韩硕',
-            password: 1234,
-            profession: '教授',
-            rank_id: 2
-        }],
+//        data: [data.json],
         onEditableSave: function (field, row, oldValue, $el) {
 //            row就是当前这一行的json形式例如：{id: 1, userName: "刘乾瑜", password: "56788", profession: "副教授", rank_id: 3}
             console.log(row);
@@ -299,36 +294,45 @@
 
     //添加用户发送ajax请求
     $('#add_user').on('click', function () {
-        var n=100;
-        var id=n++;
-        var userName=$("input[name^='user_name']").val();
-        var password=$("input[name^='password']").val();
-        var profession=$("input[name^='profession']").val();
-        var rank=$("#rank").val();
-        var index = $table.bootstrapTable('getData').length;
-        $table.bootstrapTable('insertRow', {
-            index: index,
-            row: {
-                id: id,
-                userName: userName,
-                password: password,
-                profession: profession,
-                rank_id: rank
-            }
-        });
-        $.post('url', {
-            'userName': userName,
-            'password': password,
-            'profession': profession,
-            'rank': rank
-        }, function (data) {
-            if (data == 'ok') {
+        var n = 100;
+        var id = n++;
+        var userName = $("input[name^='user_name']");
+        var password = $("input[name^='password']");
+        var profession = $("input[name^='profession']");
+        var rank = $("#rank");
+        if (userName.val() == "" || password.val() == "" || profession.val() == "") {
+            alert("添加内容不能为空！");
+            return false;
+        } else {
+            var index = $table.bootstrapTable('getData').length;
+            $table.bootstrapTable('insertRow', {
+                index: index,
+                row: {
+                    id: id,
+                    userName: userName.val(),
+                    password: password.val(),
+                    profession: profession.val(),
+                    rank: rank.val()
+                }
+            });
+//            添加后清空input的内容
+            userName.val("");
+            password.val("");
+            profession.val("");
 
-            } else {
-                alert('删除失败!');
-            }
-        }, 'text');
+            $.post('url', {
+                'userName': userName.val(),
+                'password': password.val(),
+                'profession': profession.val(),
+                'rank': rank.val()
+            }, function (data) {
+                if (data == 'ok') {
 
+                } else {
+                    alert('删除失败!');
+                }
+            }, 'text');
+        }
     });
 
     //    删除用户发送ajax请求
