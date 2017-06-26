@@ -1,16 +1,23 @@
 [
   {
-    "id": 1,
-    "userName": "刘乾瑜",
-    "password": 5678,
-    "profession": "副教授",
-    "rank": 3
-  }, {
-  "id": 1,
-  "userName": "hanshuo",
-  "password": 1234,
-  "profession": "教授",
-  "rank": 2
-}
+    "invigilate_id": 1,
+    "course":"数据结构",
+    "address": "丹青楼901",
+    "start": "2017-04-01 12:00",
+    "end": "2017-04-01 14:00",
+    "number": 3,
+    "invigilate_state":0,
+    "teacher_number":0
+  },
+  {
+    "invigilate_id": 2,
+    "course":"数据结构",
+    "address": "丹青楼904",
+    "start": "2017-04-01 12:00",
+    "end": "2017-04-01 14:00",
+    "number": 2,
+    "invigilate_state":1,
+    "teacher_number":2
+  }
 ]
 
