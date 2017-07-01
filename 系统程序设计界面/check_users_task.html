@@ -18,59 +18,12 @@
           rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet">
-
 </head>
 
 <body class="sticky-header">
-<div class="header-section">
 
-    <!--toggle button start-->
-    <a class="toggle-btn"><i class="fa fa-bars"></i></a>
-    <!--toggle button end-->
-
-    <!--search start-->
-
-    <!--search end-->
-
-    <!--notification menu start -->
-    <div class="menu-right">
-        <ul class="notification-menu">
-            <li>
-                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
-                    <i class="fa fa-bell-o"></i>
-                    <span class="badge">1</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-head pull-right">
-                    <h5 class="title">消息提醒</h5>
-                    <ul class="dropdown-list normal-list">
-                        <li class="new">
-                            <a href="">
-                                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-                                <span class="name">请注意，您在5月31日有监考！</span>
-                            </a>
-                        </li>
-
-                    </ul>
-                </div>
-            </li>
-            <li class="">
-                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <img src="images/photos/SuperUser.png" alt="">
-                    超级管理员
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
-                    <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out"></i>注销</a></li>
-                </ul>
-            </li>
-
-        </ul>
-    </div>
-    <!--notification menu end -->
-
-</div>
 <section>
+    <!-- left side start-->
     <div class="left-side sticky-left-side">
 
         <!--logo and iconic logo start-->
@@ -82,10 +35,11 @@
         <div class="left-side-inner">
             <ul class="nav nav-pills nav-stacked custom-nav">
                 <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
-                <li class="menu-list"><a href="#"><i class="fa fa-laptop"></i> <span>任务信息</span></a>
+                <li class="menu-list active"><a href="#"><i class="fa fa-laptop"></i> <span>任务信息</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="#">我的任务</a></li>
                         <li><a href="#">任务信息</a></li>
+                        <li class="active"><a href="#">完成情况</a></li>
                     </ul>
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>工作管理</span></a>
@@ -93,9 +47,9 @@
                         <li><a href="user_management.html">用户管理</a></li>
                     </ul>
                 </li>
-                <li class="menu-list active"><a href=""><i class="fa fa-tasks"></i> <span>监考信息</span></a>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>监考信息</span></a>
                     <ul class="sub-menu-list">
-                        <li class="active"><a href="blank_page.html">监考信息</a></li>
+                        <li><a href="i_information.html">监考信息</a></li>
                         <li><a href="invigilate_management.html">监考管理</a></li>
                     </ul>
                 </li>
@@ -108,15 +62,65 @@
             </ul>
         </div>
     </div>
+    <!-- left side end-->
 
+    <!-- main content start-->
     <div class="main-content">
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">1</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">消息提醒</h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">请注意，您在5月31日有监考！</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="">
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/SuperUser.png" alt="">
+                            超级管理员
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out"></i>注销</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
         <!--body wrapper start-->
         <div class="wrapper">
             <div class="row">
                 <div class="col-sm-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            监考信息总览
+                            查看历史任务
                         </header>
                         <div id="user_table" class="panel-body">
                             <div class="adv-table">
@@ -131,6 +135,9 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
                                     <h4 class="modal-title">监考分配</h4>
                                 </div>
                                 <div class="modal-body row">
@@ -138,6 +145,10 @@
                                         <table id="invigilate_table"
                                                class="table table-striped table-hover table-bordered">
                                         </table>
+                                        <div style="float: right;margin-top: 10px;">
+                                            <button id="save_teach" class="btn btn-success " type="button">添加监考老师
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +160,7 @@
         </div>
         <!--body wrapper end-->
     </div>
-
+    <!-- main content end-->
 </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
@@ -173,54 +184,65 @@
     $(function () {
         var $table = $('#table');
         $table.bootstrapTable({
-            url: "data3.json",         //请求后台的URL（*）
+            url: "data4.json",         //请求后台的URL（*）
             method: 'get',                      //请求方式（*）
             striped: true,   //是否显示行间隔色
             singleSelect: false,
             sortStable: true,
-            sortName: 'id',
+            sortName: 'endtime',
             sortable: true,
             search: true,
             clickToSelect: true,
             sortOrder: "desc",
             pagination: true, //分页
             pageNumber: 1,   //初始化加载第一页，默认第一页
-            pageSize: 10,   //每页的记录行数（*）
-            pageList: [10, 15], //可供选择的每页的行数（*）
+            pageSize: 5,   //每页的记录行数（*）
+            pageList: [5, 10], //可供选择的每页的行数（*）
             sidePagination: "client", //服务端处理分页,
             showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
             showColumns: true,                  //是否显示所有的列
             showRefresh: true,                  //是否显示刷新按钮
             columns: [
                 {
-                    field: 'address',
-                    title: '地点'
+                    field: 'user_name',
+                    title: "用户名",
+                    align: 'center'
                 },
                 {
-                    field: 'course',
-                    title: '课程名称'
-                },
-                {
-                    field: 'start',
-                    title: '开始时间',
-                    sortable: true
-                }, {
-                    field: 'end',
-                    title: '结束时间'
-                },{
-                    field: 'state',
-                    title: '分配结果',
+                    field: 'judge',
+                    title: '完成情况',
+                    align: 'center',
                     formatter: function (value, row, index) {
-                        if (row.invigilate_state == 0) {
-                            return "未分配";
-                        } else if (row.invigilate_state == 1) {
-                            return "已分配"
+                        if (row.state = 0) {
+                            return "<storng style='color: #141679;font-size: 15px'>未提交</storng>"
+                        } else if (row.state = 1) {
+                            return "<storng style='color: #29c8c8;font-size: 15px'>按时提交</storng>"
+                        } else if (row.state = 2) {
+                            return "<storng style='color: red;font-size: 15px'>超时提交</storng>"
                         }
                     }
+                },
+                {
+                    field: 'name',
+                    title: '任务名称',
+                    align: 'center'
+                },
+                {
+                    field: 'endtime',
+                    title: '截止时间',
+                    align: 'center',
+                    sortable: true
+                },
+                {
+                    field: 'type',
+                    title: '任务类型',
+                    align: 'center'
                 }
             ]
         });
+
     })
 </script>
+
 </body>
 </html>

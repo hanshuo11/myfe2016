@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+    <title>软件工程</title>
+
+    <!--data table-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="js/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css"
+          rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet">
+</head>
+
+<body class="sticky-header">
+
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html">XH manage</a>
+        </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="index.html"><i class="fa fa-home"></i> <span>首页</span></a></li>
+                <li class="menu-list active"><a href="#"><i class="fa fa-laptop"></i> <span>任务信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li class="active"><a href="#">发布任务</a></li>
+                        <li><a href="#">任务信息</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>工作管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="user_management.html">用户管理</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>监考信息</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="i_information.html">监考信息</a></li>
+                        <li><a href="invigilate_management.html">监考管理</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>系统管理</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="system_setup.html">基点设置</a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>注销</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- left side end-->
+
+    <!-- main content start-->
+    <div class="main-content">
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">1</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">消息提醒</h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">请注意，您在5月31日有监考！</span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="">
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/SuperUser.png" alt="">
+                            超级管理员
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i> 个人资料</a></li>
+                            <li><a href="login.html"><i class="fa fa-sign-out"></i>注销</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row">
+                <div class="col-sm-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            发布任务：
+                        </header>
+                        <div class="panel-body">
+                            <div class="clearfix" >
+                                <form name="form" class="form-horizontal" method="post" action="url">
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-sm-2 control-label">任务名称:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="name" class="form-control" id="inputEmail3" placeholder="名称">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputPassword3" class="col-sm-2 control-label">截止时间:</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" name="endtime" readonly="" class="form-control" id="datetimepicker" placeholder="限定任务截止时间">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="classes" class="col-sm-2 control-label">任务类型:</label>
+                                        <div class="col-sm-8">
+                                            <select name="type" id="classes" class="form-control">
+                                                <option value="1">回复信息</option>
+                                                <option value="2">上传文件</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label  class="col-sm-2 control-label">选择文件:</label>
+                                        <div class="col-sm-8">
+                                            <input name="send_file" type="file" id="exampleInputFile">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content" class="col-sm-2 control-label">任务描述:</label>
+                                        <div class="col-sm-8">
+                                            <textarea name="content" id="content" class="form-control" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button id="check" type="submit" class="btn btn-success ">发布任务</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+<script src="js/bootstrap-table-editable.js"></script>
+<script src="js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- END JAVASCRIPTS -->
+<script>
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii', /*此属性是显示顺序，还有显示顺序是mm-dd-yyyy*/
+            autoclose: true
+        });
+        $("#check").on('click',function(){
+            var type=document.form.type.value;
+            var file=document.form.send_file.value;
+            console.log(type);
+            if(type==2){
+                if(file==""){
+                    alert("请选择您要上传的文件");
+                    return false;
+                }
+            }else if(type==1){
+                if(file!=""){
+                    alert("任务类型为消息回复，请不要上传文件");
+                    return false;
+                }
+            }
+        })
+
+    })
+</script>
+
+</body>
+</html>
