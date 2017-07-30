@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .mask{
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            opacity: 0.5;
+            display: none;
+        }
+        .popup{
+            position: absolute;
+            top:50px;
+            display:none;
+        }
+        .head{
+            width: 100%;
+            height: 15%;
+            background: #16d2ce;
+            position: relative;
+        }
+        .title{
+            position: absolute;
+            top:25%;
+            left: 5%;
+            color: #FFF;
+        }
+        .close{
+            position: absolute;
+            top:25%;
+            right: 5%;
+            color: #FFF;
+            cursor: pointer;
+        }
+
+        .body{
+            width: 100%;
+            height: 65%;
+            background: #fff;
+        }
+        .footer{
+            width: 100%;
+            height: 20%;
+            background: #ffffff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="mask"></div>
+<div class="popup">
+    <div class="head">
+        <span class="title">弹出层</span><span class="close">X</span>
+    </div>
+    <div class="body"></div>
+    <div class="footer">
+        <button >确定</button>
+        <button >取消</button>
+    </div>
+</div>
+
+
+<script>
+    window.onload=function(){
+        var oMask =getElementsByClassName('mask');
+        var oPopup =getElementsByClassName('popup');
+        var oClose=getElementsByClassName('close');
+        var oTitle=getElementsByClassName('title');
+        var oBody=getElementsByClassName('body');
+        function showDialog(obj){
+            oPopup[0].style.width=obj.width+"px";
+            oPopup[0].style.height=obj.height+"px";
+            oPopup[0].style.left="50%";
+            oPopup[0].style.top="50%";
+            oPopup[0].style.marginLeft=-(obj.width/2)+"px";
+            oPopup[0].style.marginTop=-(obj.height/2)+"px";
+            oPopup[0].style.display="block";
+            oMask[0].style.display="block";
+            oClose[0].onclick=function(){
+                oPopup[0].style.display="none";
+                oMask[0].style.display="none";
+            }
+            oBody[0].innerHTML=obj.content;
+            oTitle[0].innerHTML=obj.title;
+        }
+        showDialog({
+            width:"400",
+            height:"250",
+            title:'这是一个弹出层',
+            content:"lalala"
+        })
+        function getElementsByClassName(className) {
+            if (document.getElementByClassName) {
+                return document.getElementByClassName(className)
+            }
+            var nodes = document.getElementsByTagName("*");
+            var arr = [];
+            for (var i = 0; i < nodes.length; i++) {
+                if (hasClass(nodes[i], className)) arr.push(nodes[i]);
+            }
+            return arr;
+        }
+        function hasClass(node, className) {
+            var cNames = node.className.split(/\s+/);
+            for (var i = 0; i < cNames.length; i++) {
+                if (cNames[i] == className) return true;
+            }
+            return false;
+        }
+    }
+
+</script>
+</body>
+
+</html>

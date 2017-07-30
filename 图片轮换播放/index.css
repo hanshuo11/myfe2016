@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+img{
+    margin: 0;
+}
+
+body {
+    background: #000000;
+}
+#containter {
+    width: 700px;
+    height: 560px;
+    margin: 90px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#content img {
+    width: 700px;
+    height: 450px;
+    position: absolute;
+}
+
+#imgWall {
+    width: 1500px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+}
+
+#imgWall img {
+    width: 158px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+#next {
+    width: 60px;
+    height: 50px;
+    background: black;
+    position: absolute;
+    right: 3px;
+    top: 200px;
+    color: #eeeeee;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 999999;
+    opacity: .5;
+}
+#prev {
+    width: 60px;
+    height: 50px;
+    background: black;
+    position: absolute;
+    left: 3px;
+    top: 200px;
+    color: #eeeeee;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    opacity:.5;
+    z-index: 999999;
+}
+#info{
+    width: 690px;
+    height: 20px;
+    bottom: 110px;
+    position: absolute;
+    background: #000000;
+    opacity: 0.7;
+    padding-right: 10px;
+    z-index: 999999;
+}
+#info span{
+    color: #eeeeee;
+    float: right;
+}
+#imgWall .selected{
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+#imgWall .imgOpacity{
+    opacity: .3;
+    filter: alpha(opacity=30);
+}
